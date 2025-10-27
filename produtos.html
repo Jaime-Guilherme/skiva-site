@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos - SKIVA</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <script>
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    }
+
+    // Quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById("imageModal");
+      const span = document.getElementsByClassName("close-modal")[0];
+
+      // Quando clicar no X, fecha o modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // Quando clicar fora da imagem, fecha o modal
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // Fecha o modal com a tecla ESC
+      document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>SKIVA</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="produtos.html" class="ativo">Produtos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Modal para imagem ampliada -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <main>
+    <section class="principal">
+      <h2> Produtos </h2>
+      <p>Aqui apresentamos alguns dos nossos produtos</p>
+
+      <div class="produtos-container">
+        <div class="produto">
+          <img src="imagem/shaampo.jfif" alt="Produto 1" class="produto-img" onclick="openModal(this)" />
+          <h3>Shampoo Hidratante</h3>
+          <p>Para cabelos cacheados.</p>
+          <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Shampoo%20Hidratante%20SKIVA." 
+             class="botao-whatsapp" target="_blank">Saiba mais</a>
+        </div>
+
+        <div class="produto">
+          <img src="imagem/Cilios.jpeg" alt="Produto 2" class="produto-img" onclick="openModal(this)" />
+          <h3>Cílios</h3>
+          <p>Olhar poderoso em segundos.</p>
+          <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Produto%202%20SKIVA." 
+             class="botao-whatsapp" target="_blank">Saiba mais</a>
+        </div>
+
+        <div class="produto">
+          <img src="imagem/produto-4.jpeg" alt="Produto 3" class="produto-img" onclick="openModal(this)" />
+          <h3>Condicionador Nutritivo</h3>
+          <p>Hidratação profunda para seus cabelos.</p>
+          <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Condicionador%20Nutritivo%20SKIVA." 
+             class="botao-whatsapp" target="_blank">Saiba mais</a>
+        </div>
+
+        <div class="produto">
+          <img src="imagem/produto-6.jpeg" alt="Rimel" class="produto-img" onclick="openModal(this)" />
+          <h3>Rimel Alongador</h3>
+          <p>Cílios mais longos e definidos.</p>
+          <a href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rimel%20Alongador%20SKIVA." 
+             class="botao-whatsapp" target="_blank">Saiba mais</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SKIVA - Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

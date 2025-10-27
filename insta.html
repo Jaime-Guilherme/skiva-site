@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfil da Empresa — Estilo Instagram</title>
+  <link rel="stylesheet" href="insta.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar gradient-bg">
+    <div class="container">
+      <div class="brand">Instagram</div>
+      <div class="top-actions">
+        <button type="button" class="icon-btn" aria-label="Pesquisar">🔍</button>
+        <button type="button" class="icon-btn" aria-label="Mais opções">⋯</button>
+      </div>
+    </div>
+
+  </header>
+
+  <main class="container profile">
+    <section class="profile-header">
+        <div class="photo-wrap">
+        <img class="avatar" src="imagem/skiva modelo 3.png" alt="Avatar da Empresa">
+      </div>
+      <div class="profile-info">
+        <div class="profile-row">
+            <h1 class="profile-name">Skiva_Design <span class="verified">✔️</span></h1>
+          <div class="actions">
+              <button type="button" class="btn primary">Seguir</button>
+              <button type="button" class="btn outline">Mensagem</button>
+              <button type="button" class="icon-btn small" aria-label="Mais">⋯</button>
+          </div>
+        </div>
+        <div class="meta">
+          <span><strong>69</strong> Feed</span>
+          <span><strong>56,7 mil</strong> Seguidores</span>
+          <span><strong>192</strong> Seguindo</span>
+        </div>
+        <div class="bio">
+          <p><strong>Salão de beleza</strong></p>
+          <p>✨ Onde sua beleza encontra excelência</p>
+<p>💇‍♀️ Especialistas em cortes, coloração e maquiagem</p>
+<p>🌿 Produtos premium e cuidado exclusivo</p>
+          <p>📍 Caxias do Sul • ✉️ skiva1510@gmail.com • <a href="home.html" class="link" target="_blank" rel="noopener noreferrer">site principal</a></p>
+        </div>
+        <div class="highlights">
+              <button type="button" class="highlight">
+            <img src="imagem/antes-e-depois.jpeg" alt="Destaque 1">
+            <span>Antes e Depois</span>
+              </button>
+              <button type="button" class="highlight">
+                <img src="imagem/creme skiva.png" alt="Destaque 2">
+            <span>Produtos</span>
+              </button>
+              <button type="button" class="highlight">
+            <img src="imagem/equipe.jfif" alt="Equipe">
+            <span>Equipe</span>
+              </button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="profile-nav" aria-label="Navegação de perfil">
+          <button type="button" class="tab active" aria-pressed="true">Publicações</button>
+          <button type="button" class="tab" aria-pressed="false">Reels</button>
+          <button type="button" class="tab" aria-pressed="false">Marcados</button>
+    </nav>
+
+    <section class="posts-grid">
+      <!-- exemplo de posts -->
+      <article class="post">
+        <img src="imagem/modelo-cacheado.jpeg" alt="Post 1">
+        <div class="overlay">
+          <span>❤ 2,3k</span>
+          <span>💬 157</span>
+        </div>
+      </article>
+      <article class="post">
+        <img src="imagem/espaço-fisico.jpeg" alt="Post 2">
+        <div class="overlay">
+          <span>❤ 1,1k</span>
+          <span>💬 84</span>
+        </div>
+      </article>
+      <article class="post">
+  <video controls>
+    <source src="imagem/video-pra-instagram.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos.
+  </video>
+  <div class="overlay">
+    <span>❤ 3,8k</span>
+    <span>💬 322</span>
+  </div>
+</article>
+
+      <!-- pode duplicar mais -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container small">
+      <nav class="links">
+        <button type="button" class="link">Sobre</button>
+        <button type="button" class="link">Ajuda</button>
+        <button type="button" class="link">Imprensa</button>
+        <button type="button" class="link">Carreiras</button>
+      </nav>
+      <p class="copyright">© <span id="year"></span> Todos os direitos reservados. </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".profile-nav .tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".profile-nav .tab").forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
+      });
+    });
+  </script>
+</body>
+</html>
