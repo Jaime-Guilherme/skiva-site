@@ -1,6 +1,5 @@
 # SKIVA - Site do Salão de Beleza
 
-![SKIVA](imagem/skiva modelo 3.png)
 
 ## 📋 Sobre o Projeto
 
