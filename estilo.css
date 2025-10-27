@@ -154,13 +154,14 @@ section img,
 /* ==================== SOBRE ==================== */
 .sobre-principal {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
   background: rgba(26, 26, 26, 0.9);
   border-radius: 12px;
-  width: 90%;
-  max-width: 800px;
+  width: 95%;
+  max-width: 1200px;
   margin: 140px auto 60px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   text-align: center;
@@ -173,12 +174,16 @@ section img,
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .sobre-imagem img {
-  width: 65%;
-  max-width: 400px;
-  height: auto;
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+  object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
   margin-bottom: 20px;
@@ -193,13 +198,14 @@ section img,
 .descricao-imagem {
   font-size: 1.1rem;
   color: #f9e6d9;
-  max-width: 600px;
+  max-width: 450px;
   line-height: 1.5;
   opacity: 0;
   transform: translateY(40px);
   animation: slideUp 1s ease-out forwards;
   animation-delay: 0.4s;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  padding: 0 15px;
 }
 
 /* ==================== PRODUTOS ==================== */
@@ -389,7 +395,17 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  .sobre-principal { width: 95%; padding: 60px 10px; }
+  .sobre-principal { 
+    width: 95%; 
+    padding: 40px 10px;
+    flex-direction: column;
+  }
+  .sobre-imagem {
+    max-width: 100%;
+  }
+  .sobre-imagem img {
+    height: 250px;
+  }
   .produtos-container {
     flex-direction: column;
     align-items: center;
