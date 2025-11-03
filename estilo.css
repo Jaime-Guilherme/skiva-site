@@ -1,4 +1,6 @@
 /* ==================== ESTILO GERAL ==================== */
+/* Import da fonte usada no projeto (antes estava somente em contato.css) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 /*
   NOTE: Ajustes de responsividade feitos em Nov/2025
   - Corrigido comportamento do cabeçalho em telas menores (removeu-se posicionamento absoluto do nav)
@@ -325,6 +327,83 @@ form {
   max-width: 400px;
   margin: 0 auto;
   gap: 10px;
+}
+
+/* ==================== ESTILO - PÁGINA CONTATO (mesclado de contato.css) ==================== */
+.contato {
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  background-color: rgba(26, 26, 26, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp 1s ease-out forwards;
+}
+
+.contato h2 {
+  margin-bottom: 15px;
+  color: #f2c9b1;
+  font-weight: 600;
+}
+
+.contato p {
+  margin-bottom: 30px;
+  color: #f9e6d9;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 0;
+}
+
+.icone {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.icone img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.4));
+}
+
+.icone:hover img {
+  transform: scale(1.1);
+}
+
+.icone:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+  .contato { width: 95%; padding: 20px; }
+  .icone { width: 60px; height: 60px; }
+  .icone img { width: 60%; height: 60%; }
+}
+
+@media screen and (max-width: 480px) {
+  .icone { width: 50px; height: 50px; }
+  .icone img { width: 55%; height: 55%; }
+  footer { font-size: 0.8rem; }
 }
 
 input, textarea {

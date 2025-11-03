@@ -63,10 +63,12 @@ O site é totalmente responsivo, adaptando-se a:
 - Corrigido comportamento do cabeçalho em telas menores: o menu não usa mais posicionamento absoluto em breakpoints menores para evitar sobreposição com o título/logo.
 - Reduzido o tamanho do logo (`header h1`) em dispositivos móveis e ajustados espaçamentos (gaps/padding) para melhorar a leitura.
 - Background em modo "fixed" foi desabilitado em dispositivos móveis para reduzir consumo de memória/CPU e melhorar performance em scroll.
+ - Regras específicas da página `contato.html` foram mescladas em `estilo.css` e o arquivo `contato.css` foi removido do repositório para evitar duplicação de estilos.
 
 Como testar rapidamente:
 - Abra `index.html` no navegador e ative o modo responsivo (DevTools). Teste larguras: 1024px, 768px, 480px e 360px.
 - Verifique que o menu não sobrepõe o logo e que o layout se mantém acessível.
+ - Observação: caso precise restaurar estilos antigos de `contato`, eles foram integrados a `estilo.css`; o arquivo `contato.css` foi retirado do projeto.
 
 ## 🔄 Como Atualizar
 
