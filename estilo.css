@@ -1,4 +1,13 @@
 /* ==================== ESTILO GERAL ==================== */
+/*
+  NOTE: Ajustes de responsividade feitos em Nov/2025
+  - Corrigido comportamento do cabeçalho em telas menores (removeu-se posicionamento absoluto do nav)
+  - Reduzido o tamanho do "logo" (`header h1`) em dispositivos móveis
+  - Ajustado espaçamentos (gaps/padding) para evitar sobreposição
+  - Background fixo desativado em telas móveis para melhorar performance
+  Estas mudanças visam melhorar a usabilidade em smartphones e tablets sem alterar o layout
+  em desktop.
+*/
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
@@ -392,9 +401,37 @@ footer {
     width: calc(50% - 20px);
     min-width: 200px;
   }
+  /* Ajustes no cabeçalho para evitar sobreposição do menu centralizado */
+  header {
+    padding: 10px 18px;
+  }
+  nav {
+    /* Remover posicionamento absoluto em telas menores para que o header flex funcione corretamente */
+    position: static;
+    left: auto;
+    transform: none;
+    margin: 0;
+  }
+  nav ul { gap: 18px; }
 }
 
 @media screen and (max-width: 768px) {
+  /* Mobile/tablet: evitar background fixed por performance */
+  body { background-attachment: scroll; }
+
+  /* Permitir que o header quebre em duas linhas se necessário (logo + menu) */
+  header { flex-wrap: wrap; gap: 8px; }
+
+  /* Logo (h1) menor e mais flexível */
+  header h1 { font-size: 1.6rem; flex: 0 1 auto; }
+
+  /* Menu ocupa largura total abaixo do logo, alinhado à direita.
+    Para UX mobile usamos um botão 'hamburger' que controla a exibição do nav.
+    Por padrão o nav fica escondido (display: none) e é mostrado ao adicionar a classe .open. */
+  nav { width: 100%; display: none; justify-content: flex-end; }
+  nav.open { display: flex; }
+  nav ul { width: auto; align-items: flex-end; }
+
   .sobre-principal { 
     width: 95%; 
     padding: 40px 10px;
@@ -415,5 +452,74 @@ footer {
     width: 90%;
     max-width: 300px;
   }
-  nav ul { flex-direction: column; gap: 20px; }
+  /* Tornar o menu vertical e alinhar à direita para economizar espaço no mobile */
+  nav { position: static; transform: none; left: auto; }
+  nav ul { flex-direction: column; gap: 14px; align-items: flex-end; }
 }
+
+/* Ajustes para telas bem pequenas (celulares) */
+@media screen and (max-width: 480px) {
+  header {
+    padding: 8px 12px;
+  }
+  header h1 {
+    font-size: 1.4rem;
+    margin-right: 8px;
+  }
+  nav {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  nav ul {
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+  }
+  nav a { padding: 6px 10px; }
+}
+
+/* Pequenos ajustes gerais de espaçamento para dispositivos muito pequenos */
+@media screen and (max-width: 360px) {
+  header { padding: 6px 8px; }
+  header h1 { font-size: 1.2rem; }
+  nav ul { gap: 8px; }
+  .principal { padding: 100px 12px 60px; }
+}
+
+/* ==================== HAMBURGER MENU ==================== */
+.hamburger {
+  display: none; /* mostrado apenas em breakpoints menores */
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 36px;
+  padding: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger .bar {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: #f9e6d9;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger { display: flex; }
+}
+
+/* Quando o menu estiver aberto, animar o ícone (transform simples) */
+.hamburger.open .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open .bar:nth-child(2) { opacity: 0; }
+.hamburger.open .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Certifique-se de que o nav fique acima do conteúdo quando aberto */
+nav.open { z-index: 1200; }

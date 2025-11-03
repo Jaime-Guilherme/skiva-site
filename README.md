@@ -58,6 +58,16 @@ O site é totalmente responsivo, adaptando-se a:
 - Tablets
 - Smartphones
 
+### ✅ Alterações recentes (Nov/2025)
+
+- Corrigido comportamento do cabeçalho em telas menores: o menu não usa mais posicionamento absoluto em breakpoints menores para evitar sobreposição com o título/logo.
+- Reduzido o tamanho do logo (`header h1`) em dispositivos móveis e ajustados espaçamentos (gaps/padding) para melhorar a leitura.
+- Background em modo "fixed" foi desabilitado em dispositivos móveis para reduzir consumo de memória/CPU e melhorar performance em scroll.
+
+Como testar rapidamente:
+- Abra `index.html` no navegador e ative o modo responsivo (DevTools). Teste larguras: 1024px, 768px, 480px e 360px.
+- Verifique que o menu não sobrepõe o logo e que o layout se mantém acessível.
+
 ## 🔄 Como Atualizar
 
 1. Clone o repositório:
